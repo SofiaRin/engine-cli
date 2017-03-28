@@ -19,7 +19,7 @@ export function buildEngine(callback: () => void) {
 }
 
 function executeCommand(command: string, args: string[], callback: () => void) {
-    let child_process = cp.spawn(command, args);
+    let child_process = cp.exec(command, args);
     child_process.stdout.addListener("data", data => {
         console.log(data.toString())
     })
